@@ -15,6 +15,10 @@ section .text
 ; |  %r10        |               |
 ; |  %r11        |               |
 ; |  %r12-%r15   |       yes     |
+; "Caller Save"即寄存器的值是由"调用者(父函数)保存",父函数必须push保存好Caller Save register
+;    后再调用子函数
+; "Callee Save"即寄存器的值是由"被调用者(子函数)保存",父函数无需保存这些寄存器值由子函数先push
+;    返回时再pop这些寄存器、子函数push和pop之间可以使用这些寄存器
 ;========================================================================================
 ; int64_t IntegerAdd_(int64_t a, int64_t b, int64_t c, int64_t d, int64_t e, int64_t f); 
 ; code is intel风格的汇编代码
