@@ -2,11 +2,11 @@ section .text
 
 ;========================================================================================
 ; --Register-----|--Callee Save--|----------------------------Description----------------
-; |  %rax        |               |  函数返回值寄存器;也用于idiv and imul指令
+; |  %rax        |               | 函数返回值寄存器;也用于idiv and imul指令
 ; |  %rbx        |       yes     |  
 ; |  %rcx        |               | 函数第4个入参
 ; |  %rdx        |               | 函数第3个入参;也用于idiv and imul指令
-; |  %rsp        |               | stack pointer
+; |  %rsp        |               | stack pointer,通常指向栈顶位置, pop和push操作会改变%rsp的值
 ; |  %rbp        |       yes     | frame pointer
 ; |  %rsi        |               | 函数第2个入参
 ; |  %rdi        |               | 函数第1个入参
