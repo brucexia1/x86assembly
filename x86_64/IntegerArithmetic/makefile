@@ -4,6 +4,7 @@
 # gcc -c IntegerArithmetic.c -o IntegerArithmetic.o
 # gcc -o app_demo IntegerArithmetic.o IntegerArithmetic_.o
 ##########################################################################################
+# objdump -M intel -D app_demo > app_demo.txt
 # 默认disassemble看到的是AT&T风格的汇编代码，可以使用
 # set disassembly-flavor intel   设置反汇编后显示的是intel风格的汇编代码
 # x/8xg $rsp  打印当前堆栈中8个8字节内容
