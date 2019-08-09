@@ -17,6 +17,7 @@ section .text
 ; |  %r12-%r15   |       yes     |
 ;========================================================================================
 ; int64_t IntegerAdd_(int64_t a, int64_t b, int64_t c, int64_t d, int64_t e, int64_t f); 
+; code is intel风格的汇编代码
 global IntegerAdd_
 IntegerAdd_:
     add rdi,rsi                ;rdi = a + b
@@ -29,6 +30,7 @@ IntegerAdd_:
     
 ;========================================================================================
 ; int64_t IntegerMul_(int8_t a, int16_t b, int32_t c, int64_t d, int8_t e, int16_t f, int32_t g, int64_t h); 
+; code is intel风格的汇编代码
 global IntegerMul_
 IntegerMul_:
     movsx r10,edi                 ;r10 = sign_extend(a)
@@ -54,6 +56,7 @@ IntegerMul_:
 
 ;========================================================================================
 ; void IntegerDiv_(int64_t a, int64_t b, int64_t quo_rem_ab[2], int64_t c, int64_t d, int64_t quo_rem_cd[2]);
+; code is intel风格的汇编代码
 global IntegerDiv_
 IntegerDiv_:
     mov rax,rdi                        ;rax = a 
