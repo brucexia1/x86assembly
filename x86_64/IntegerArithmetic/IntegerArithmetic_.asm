@@ -1,9 +1,22 @@
 section .text
 
 ;========================================================================================
+; --Register-----|--Callee Save--|----------------------------Description----------------
+; |  %rax        |               |  函数返回值寄存器;也用于idiv and imul指令
+; |  %rbx        |       yes     |  
+; |  %rcx        |               | 函数第4个入参
+; |  %rdx        |               | 函数第3个入参;也用于idiv and imul指令
+; |  %rsp        |               | stack pointer
+; |  %rbp        |       yes     | frame pointer
+; |  %rsi        |               | 函数第2个入参
+; |  %rdi        |               | 函数第1个入参
+; |  %r8         |               | 函数第5个入参
+; |  %r9         |               | 函数第6个入参
+; |  %r10        |               |
+; |  %r11        |               |
+; |  %r12-%r15   |       yes     |
+;========================================================================================
 ; int64_t IntegerAdd_(int64_t a, int64_t b, int64_t c, int64_t d, int64_t e, int64_t f); 
-; rdi,rsi,rdx,rcx,r8,r9:用作函数的第一到第六个入参，函数从第7个入参开始需要通过压栈方式传入
-; rax：用作函数返回值
 global IntegerAdd_
 IntegerAdd_:
     add rdi,rsi                ;rdi = a + b
@@ -16,8 +29,6 @@ IntegerAdd_:
     
 ;========================================================================================
 ; int64_t IntegerMul_(int8_t a, int16_t b, int32_t c, int64_t d, int8_t e, int16_t f, int32_t g, int64_t h); 
-; rdi,rsi,rdx,rcx,r8,r9:用作函数的第一到第六个入参，函数从第7个入参开始需要通过压栈方式传入
-; rax：用作函数返回值
 global IntegerMul_
 IntegerMul_:
     movsx r10,edi                 ;r10 = sign_extend(a)
@@ -43,8 +54,6 @@ IntegerMul_:
 
 ;========================================================================================
 ; void IntegerDiv_(int64_t a, int64_t b, int64_t quo_rem_ab[2], int64_t c, int64_t d, int64_t quo_rem_cd[2]);
-; rdi,rsi,rdx,rcx,r8,r9:用作函数的第一到第六个入参，函数从第7个入参开始需要通过压栈方式传入
-; rax：用作函数返回值
 global IntegerDiv_
 IntegerDiv_:
     mov rax,rdi                        ;rax = a 
