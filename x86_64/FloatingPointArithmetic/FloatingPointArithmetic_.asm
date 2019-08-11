@@ -40,6 +40,12 @@ CalcSum_:
     ret
 ;========================================================================================
 ;extern double CalcDist_(int x1, double x2, long long y1, double y2, float z1, short z2);
+; edi  <-  x1
+; xmm0 <-  x2
+; rsi  <-  y1
+; xmm1 <-  y2
+; xmm2 <-  z1
+; edx  <-  z2
 ; code is intel风格的汇编代码
 global CalcDist_
 CalcDist_:
