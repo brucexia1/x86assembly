@@ -22,10 +22,11 @@
 
 section .text
 ;========================================================================================
-; extern int64_t Cc1_(int8_t a, int16_t b, int32_t c, int64_t d, int8_t e, int16_t f, int32_t g, int64_t h);
+; extern double* MatrixMul_(const double* m1, int nr1, int nc1, const double* m2, int nr2, int nc2);
 ; code is intel风格的汇编代码
-global Cc1_
-Cc1_:
+extern malloc
+global MatrixMul_
+MatrixMul_:
     push rbp
 	mov  rsp,rbp
 	
